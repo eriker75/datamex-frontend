@@ -3,6 +3,7 @@ import 'tiny-slider/dist/tiny-slider.css';
 import 'simplebar/dist/simplebar.css';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
+import { ReduxProvider } from '@/redux/provider';
 
 export default function App({ Component, pageProps }: AppProps) {
 
@@ -13,5 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  return <Component {...pageProps} />
+  return (
+    <ReduxProvider>
+      <Component {...pageProps} />
+    </ReduxProvider>
+  )
 }
