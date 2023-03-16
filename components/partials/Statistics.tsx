@@ -1,40 +1,17 @@
 import React from 'react'
 import  Image  from 'next/image';
 import { Container, Row, Col } from 'react-bootstrap'
+import { TotalCard } from '../uxux/counters/TotalCard';
 
 const Statistics = () => {
   return (
     <>
         <Container fluid="md" className='py-5'>
             <Row className='gap-5'>
-                <Col className='d-flex justify-content-center'>
-                    <h1 
-                        style={{height: '150px'}}
-                        className='rounded-3 text-white bold bg-primary flex align-items justify-content w-100 text-center'>
-                        100
-                    </h1>
-                </Col>
-                <Col className='d-flex justify-content-center'>
-                    <h1 
-                        style={{height: '150px'}}
-                        className='rounded-3 text-white bold bg-primary flex align-items justify-content w-100 text-center'>
-                        50
-                    </h1>
-                </Col>
-                <Col className='d-flex justify-content-center'>
-                    <h1 
-                        style={{height: '150px'}}
-                        className='rounded-3 text-white bold bg-primary flex align-items justify-content w-100 text-center'>
-                        375
-                    </h1>
-                </Col>
-                <Col className='d-flex justify-content-center'>
-                    <h1 
-                        style={{height: '150px'}}
-                        className='rounded-3 text-white bold bg-primary flex align-items justify-content w-100 text-center'>
-                        22
-                    </h1>
-                </Col>
+                <TotalCard n={100}/>
+                <TotalCard n={50}/>
+                <TotalCard n={375}/>
+                <TotalCard n={22}/>
             </Row>
       </Container>
       <div className='my-5 p-5 bg-primary' style={{"height": "500px"}}>
@@ -65,7 +42,7 @@ const Statistics = () => {
                     </Container>
                 </Col>
                 <Col>
-                    <Image src="/assets/placeholders/hero.png" alt="hero" height={500} width={500}/>
+                    <Image src="/placeholders/hero.png" alt="hero" height={500} width={500}/>
                 </Col>
             </Row>
         </Container>
