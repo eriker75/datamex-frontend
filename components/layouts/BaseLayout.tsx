@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, ReactElement } from 'react'
 import { DropdownFilter, FilterButton, Footer, Navigation, SignInModal } from '@/components';
 import { BackgroundImage } from '@/components';
 
 interface Children{
-  children: JSX.Element | JSX.Element[] | string | string[];
+  children: any;
 }
 
 const BaseLayout : FC<Children> = ({children}) => {

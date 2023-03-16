@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
   
   useEffect(() => {
     if(window !== undefined){
-      require("bootstrap/dist/js/bootstrap.bundle.min.js");
+      window.bootstrap = require("bootstrap/dist/js/bootstrap.bundle.min.js");
       require("js/theme.js");
     }
   }, []);
