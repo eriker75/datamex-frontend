@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from '@/redux/store';
-import { WithNull } from "@/types/WithNull";
+import { WithNull } from '@/types/WithNull';
 
 export interface AuthState {
     user: string;

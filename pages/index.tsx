@@ -1,12 +1,6 @@
 import Head from 'next/head';
-import { 
-  Footer, 
-  Navigation,
-  FrequentQuestions,
-  Statistics,
-  Reviews,
-  SignInModal
-} from '@/components/partials';
+import { FrequentQuestions, Statistics, Reviews } from '@/components';
+import { BaseLayout } from '@/components';
 
 export default function Home() {
   return (
@@ -17,12 +11,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SignInModal/>
-      <Navigation/>
-      <Statistics/>
-      <FrequentQuestions/>
-      <Reviews/>
-      <Footer/>
+      <BaseLayout>
+        <Statistics/>
+        <FrequentQuestions/>
+        <Reviews/>
+      </BaseLayout>
     </>
   )
 }
