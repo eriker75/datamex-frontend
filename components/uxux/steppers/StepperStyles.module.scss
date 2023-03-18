@@ -1,0 +1,35 @@
+/* @-webkit-keyframes fadeout {
+    0% {
+        opacity:1;
+        display: block;
+    }
+    100% {
+        opacity:0;
+        display: none;
+    }
+}
+@keyframes fadeout {
+    0% {
+        opacity:1;
+        display: block;
+    }
+    100% {
+        opacity:0;
+        display: none;
+    }
+}
+.fadeOut {
+    opacity:0;
+    -moz-animation   : fadeout 1s linear;
+    -webkit-animation: fadeout 1s linear;
+    animation        : fadeout 1s linear;
+} */
+/* @keyframes slideaway {
+    from { display: block; }
+    to { transform: translateY(40px); opacity: 0;}
+}
+  
+.hide {
+    animation: slideaway 1s;
+    display: none;
+} */

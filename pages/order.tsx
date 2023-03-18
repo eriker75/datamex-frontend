@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
-import { BaseLayout } from '@/components';
+import { BaseLayout, StepperComponent } from '@/components';
 
 export default function orderPage({
     pageComponentProps
@@ -9,16 +9,18 @@ export default function orderPage({
             <div style={{
                 "top": "624px",
                 "left": "317px",
-                "width": "800px",
-                "height": "50vh",
+                "width": "1000px",
+                "height": "100vh",
                 "margin": "100px auto",
-                "borderRadius": "20px !important",
+                "borderRadius": "20px",
                 //"background": "var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box",
                 "background": "#FFFFFF 0% 0% no-repeat padding-box",
                 "boxShadow": "0px 20px 40px #00000029",
                 "opacity": "1",
+                "display": "flex",
+                "flexDirection": "column",
             }}>
-                
+                <StepperComponent/>
             </div>
         </BaseLayout>
     )

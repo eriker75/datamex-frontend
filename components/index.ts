@@ -13,3 +13,5 @@ export { SignInModal } from './partials';
 export { BackgroundImage } from "./uxux";
 export { DropdownFilter } from "./uxux";
 export { FilterButton } from "./uxux";
+export { StepperComponent } from "./uxux";
+export { TotalResults } from "./uxux";

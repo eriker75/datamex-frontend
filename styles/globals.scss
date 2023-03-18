@@ -1,2 +1,6 @@
 @import '~normalize.css/normalize.css';
-@import 'scss/theme.scss'
+@import 'scss/theme.scss';
+
+a:hover{
+    text-decoration: none;
+}
