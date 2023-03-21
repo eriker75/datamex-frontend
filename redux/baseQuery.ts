@@ -4,7 +4,7 @@ import { RootState } from './store';
 
 const baseQuery = fetchBaseQuery({
     baseUrl: 'http://localhost:3000/api/v1',
-    credentials: 'include', //Include cookies in all requests
+    //credentials: 'include', //Include cookies in all requests
     prepareHeaders: (headers, { getState }) => {
         const state = getState() as RootState;
         const token = state.auth.token

@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import Image from 'next/image';
 import Link from 'next/link';
 
 const DashboardSidebar = () => {
@@ -8,11 +8,12 @@ const DashboardSidebar = () => {
       {/*<!-- Sidebar-->*/}
       <div className="bg-light rounded-3 shadow-lg">
           <div className="px-4 py-4 mb-1 text-center">
-            <img
+            <Image
               className="d-block rounded-circle mx-auto my-2"
-              src="img/dashboard/avatar/main.jpg"
+              src="/img/dashboard/avatar/main.jpg"
               alt="Amanda Wilson"
-              width="110"
+              width={110}
+              height={110}
             />
             <h6 className="mb-0 pt-1">Amanda Wilson</h6>
             <span className="text-muted fs-sm">@amanda_w</span>

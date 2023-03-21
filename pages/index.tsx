@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import { FrequentQuestions, Statistics, Reviews } from '@/components';
-import { BaseLayout } from '@/components';
+import Head from "next/head";
+import { FrequentQuestions, Statistics, Reviews } from "@/components";
+import { BaseLayout } from "@/components";
 
 export default function Home() {
   return (
@@ -12,10 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BaseLayout>
-        <Statistics/>
-        <FrequentQuestions/>
-        <Reviews/>
+        <Statistics />
+        <FrequentQuestions />
+        <Reviews />
       </BaseLayout>
     </>
-  )
+  );
 }
