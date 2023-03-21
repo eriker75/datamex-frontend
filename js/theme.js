@@ -1,3 +1,4 @@
+'use client';
 import masonryGrid from './components/masonry-grid';
 import stickyNavbar from './components/sticky-navbar';
 import navbarSearch from './components/navbar-search';
