@@ -3,13 +3,9 @@
  * Copyright 2021 Createx Studio
  * Theme styles
  */
- 
-// User variables
-@import 'user-variables';
 
 // Configuration & utilities
-
-@import 'variables';
+@use 'variables' as *;
 @import 'mixins';
 @import 'utilities';
 
@@ -19,6 +15,3 @@
 // Layout & components
 @import 'reboot';
 @import 'components';
-
-// User custom styles
-@import 'user';

@@ -12,15 +12,14 @@ export interface Welcome {
 export const totalsCounterApi = createApi({
   reducerPath: "totalCounterApi",
   baseQuery,
+  tagTypes: ['CounterTotals'],
   endpoints: (builder) => ({
     globalTotals: builder.query<Welcome, string[] | void>({
-      query: (cities) => {
-        console.log(queryString.stringify({cities: cities}, {arrayFormat: 'bracket'}))
-        return {
-          url: '/workbooks/totals?' + queryString.stringify({cities}, {arrayFormat: 'bracket'}),
-          method: 'GET',
-        }
-      }
+      query: (cities) => ({
+        url: '/workbooks/totals?' + queryString.stringify({cities}, {arrayFormat: 'bracket'}),
+        method: 'GET',
+      }),
+      providesTags: ['CounterTotals'],
     }),
   })
 })

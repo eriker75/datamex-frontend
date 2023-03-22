@@ -1,0 +1,7 @@
+//@import url('styles/scss/variables');
+
+.mystyle{
+    &:hover{
+        background-color: var(--bs-gray-400) !important;
+    }
+}
