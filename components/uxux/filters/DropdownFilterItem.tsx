@@ -3,23 +3,28 @@ import styles from "./DropdownFilterItem.module.scss";
 import classNames from "classnames/bind";
 
 interface Props {
-  key: string;
   value: string;
 }
 
-const DropdownFilterItem: FC<Props> = ({ key, value }) => {
+const DropdownFilterItem: FC<Props> = ({ value }) => {
   let cx = classNames.bind(styles);
   return (
     <div
-      key={key}
+      style={{ padding: "0 1.25rem" }}
       className={cx("dropdown-item", "mystyle")}
-      onClick={() => console.log(key)}
+      onClick={() => console.log(value)}
     >
       <div className="form-check">
-        <input className="form-check-input cursor" type="checkbox" id={key} />
+        <input
+          className="form-check-input cursor"
+          type="checkbox"
+          id={value}
+          name={value}
+          value={value}
+        />
         <label
           className="form-check-label cursor"
-          htmlFor={key}
+          htmlFor={value}
           style={{ whiteSpace: "normal" }}
         >
           {value}

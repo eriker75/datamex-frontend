@@ -1,18 +1,17 @@
-import { wbtypes } from "@/contants/wbtypes";
-import React, { ChangeEvent } from "react";
+import { FC } from "react";
 import { useState } from "react";
 import DropdownFilterItem from "./DropdownFilterItem";
+import { searchHelper } from "@/helpers";
 
-const DropdownFilter = () => {
+
+interface Props {
+  options: string[];
+}
+
+const DropdownFilter: FC<Props> = ({ options }) => {
   const [search, setSearch] = useState<string>("");
 
-  const searchFilter = (val: [string, string]) => {
-    return search.toLocaleLowerCase() === ""
-      ? val
-      : val[1].toLocaleLowerCase().includes(search.toLocaleLowerCase())
-      ? val
-      : null;
-  };
+  const searchFilter = (val: string) => searchHelper(search, val);
 
   return (
     <div className="btn-group dropdown">
@@ -35,11 +34,9 @@ const DropdownFilter = () => {
         style={{ overflowY: "scroll", maxHeight: "200px" }}
         onClick={(event) => event.stopPropagation()}
       >
-        {Object.entries(wbtypes)
-          .filter(searchFilter)
-          .map(([key, value]) => (
-            <DropdownFilterItem key={key} value={value} />
-          ))}
+        {options.filter(searchFilter).map((option) => (
+          <DropdownFilterItem key={option} value={option} />
+        ))}
       </div>
     </div>
   );

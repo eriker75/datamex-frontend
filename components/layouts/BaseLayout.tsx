@@ -1,6 +1,13 @@
-import React, { FC, ReactElement } from 'react'
-import { DropdownFilter, FilterButton, Footer, Navigation, SignInModal } from '@/components';
-import { BackgroundImage } from '@/components';
+import { FC } from 'react'
+import { WB_TYPES, MEXICO_CITIES } from "@/contants";
+import { 
+  DropdownFilter,
+  FilterButton,
+  Footer,
+  Navigation,
+  SignInModal,
+  BackgroundImage
+} from '@/components';
 
 interface Children{
   children: any;
@@ -22,8 +29,8 @@ const BaseLayout : FC<Children> = ({children}) => {
           className='position-absolute top-100 start-50 translate-middle w-50 rounded rounded-5 d-flex align-items-center justify-content-center gap-3'
           style={{"minHeight": "100px","backgroundColor": "#F7F7FC", "zIndex": "9", "minWidth" : "800px"}}
         >
-          <DropdownFilter/>
-          <DropdownFilter/>
+          <DropdownFilter options={Object.values(WB_TYPES)}/>
+          <DropdownFilter options={MEXICO_CITIES}/>
           <FilterButton/>
         </div>
       </div>

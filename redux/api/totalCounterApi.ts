@@ -16,7 +16,8 @@ export const totalsCounterApi = createApi({
   endpoints: (builder) => ({
     globalTotals: builder.query<Welcome, string[] | void>({
       query: (cities) => ({
-        url: '/workbooks/totals?' + queryString.stringify({cities}, {arrayFormat: 'bracket'}),
+        url: '/workbooks/totals?'
+          .concat(queryString.stringify({ cities }, { arrayFormat: 'bracket' })),
         method: 'GET',
       }),
       providesTags: ['CounterTotals'],
