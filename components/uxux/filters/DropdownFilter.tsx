@@ -6,9 +6,10 @@ import { searchHelper } from "@/helpers";
 
 interface Props {
   options: string[];
+  entity: string;
 }
 
-const DropdownFilter: FC<Props> = ({ options }) => {
+const DropdownFilter: FC<Props> = ({ options, entity }) => {
   const [search, setSearch] = useState<string>("");
 
   const searchFilter = (val: string) => searchHelper(search, val);
@@ -35,7 +36,7 @@ const DropdownFilter: FC<Props> = ({ options }) => {
         onClick={(event) => event.stopPropagation()}
       >
         {options.filter(searchFilter).map((option) => (
-          <DropdownFilterItem key={option} value={option} />
+          <DropdownFilterItem key={option} value={option} entity={entity}/>
         ))}
       </div>
     </div>

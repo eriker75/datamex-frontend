@@ -2,11 +2,16 @@ import { baseQuery } from "../baseQuery";
 import { createApi } from "@reduxjs/toolkit/query/react";
 import queryString from 'query-string';
 
-export interface Welcome {
+export interface Totals {
   emails: number;
   phones: number;
   companies: number;
   webs: number;
+}
+
+export interface Filters{
+  cities: string[];
+  wbtypes: string[];
 }
 
 export const totalsCounterApi = createApi({
@@ -14,10 +19,12 @@ export const totalsCounterApi = createApi({
   baseQuery,
   tagTypes: ['CounterTotals'],
   endpoints: (builder) => ({
-    globalTotals: builder.query<Welcome, string[] | void>({
-      query: (cities) => ({
+    globalTotals: builder.query<Totals, Filters | void>({
+      query: (params) => ({
         url: '/workbooks/totals?'
-          .concat(queryString.stringify({ cities }, { arrayFormat: 'bracket' })),
+          .concat(queryString.stringify({ cities: params?.cities }, { arrayFormat: 'bracket' }))
+          .concat('&')
+          .concat(queryString.stringify({ types: params?.wbtypes }, { arrayFormat: 'bracket' })),
         method: 'GET',
       }),
       providesTags: ['CounterTotals'],

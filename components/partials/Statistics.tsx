@@ -1,13 +1,14 @@
 import { Container, Row } from "react-bootstrap";
 import { TotalCard } from "../uxux/counters/TotalCard";
 import { WhyDatamex } from "./WhyDatamex";
-import { useGlobalTotalsQuery } from "@/redux/api/totalCounterApi";
+import { Filters, useGlobalTotalsQuery } from "@/redux/api/totalCounterApi";
 import { useState } from "react";
+import { RootState } from '../../redux/store';
+import { useAppSelector } from "@/hooks/redux";
 
 const Statistics = () => {
-  const [cities, setCities] = useState<string[]>([]);
-  const { data, isLoading, isError, error, refetch } =
-    useGlobalTotalsQuery(cities);
+  const filters = useAppSelector((state: RootState) => state.totalCounter);
+  const { data, isLoading, isError, error, refetch } = useGlobalTotalsQuery(filters);
 
   return (
     <>
@@ -25,14 +26,6 @@ const Statistics = () => {
             JSON.stringify(error)
           )}
         </Row>
-        <button
-          onClick={() => {
-            setCities(["Aguascalientes", "Pabellón de Arteaga"]);
-            refetch();
-          }}
-        >
-          REFETCH
-        </button>
       </Container>
       <WhyDatamex />
       <h1 className="text-center"> Preguntas Frecuentes</h1>

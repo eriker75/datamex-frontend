@@ -29,8 +29,8 @@ const BaseLayout : FC<Children> = ({children}) => {
           className='position-absolute top-100 start-50 translate-middle w-50 rounded rounded-5 d-flex align-items-center justify-content-center gap-3'
           style={{"minHeight": "100px","backgroundColor": "#F7F7FC", "zIndex": "9", "minWidth" : "800px"}}
         >
-          <DropdownFilter options={Object.values(WB_TYPES)}/>
-          <DropdownFilter options={MEXICO_CITIES}/>
+          <DropdownFilter options={Object.values(WB_TYPES)} entity='types'/>
+          <DropdownFilter options={MEXICO_CITIES} entity='cities'/>
           <FilterButton/>
         </div>
       </div>

@@ -23,24 +23,24 @@ const totalCounterSlice = createSlice({
   name: 'totalCounter',
   initialState,
   reducers: {
-    addType: (state, action: PayloadAction<wbtypePayload>) => {
-      if (!state.wbtypes.includes(action.payload.wbtype))
+    toggleType: (state, action: PayloadAction<wbtypePayload>) => {
+      if (!state.wbtypes.includes(action.payload.wbtype)){
         state.wbtypes.push(action.payload.wbtype);
+      } else {
+        state.wbtypes.splice(state.wbtypes.indexOf(action.payload.wbtype), 1);
+      } 
     },
-    removeType: (state, action: PayloadAction<wbtypePayload>) => {
-      state.wbtypes.splice(state.wbtypes.indexOf(action.payload.wbtype), 1);
-    },
-    addCity: (state, action: PayloadAction<cityPayload>) => {
-      if (!state.cities.includes(action.payload.city))
+    toggleCity: (state, action: PayloadAction<cityPayload>) => {
+      if (!state.cities.includes(action.payload.city)){
         state.cities.push(action.payload.city);
-    },
-    removeCity: (state, action: PayloadAction<cityPayload>) => {
-      state.cities.splice(state.wbtypes.indexOf(action.payload.city), 1);
+      } else {
+        state.cities.splice(state.cities.indexOf(action.payload.city), 1);
+      } 
     },
   },
 })
 
-export const { addType, removeType, addCity, removeCity } = totalCounterSlice.actions;
+export const { toggleType, toggleCity } = totalCounterSlice.actions;
 export default totalCounterSlice.reducer;
 export const selectTotalWbTypes = (state: RootState) => state.totalCounter.wbtypes;
 export const selectTotalCities = (state: RootState) => state.totalCounter.cities;
