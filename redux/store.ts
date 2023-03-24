@@ -4,11 +4,13 @@ import authSlice from '@/redux/slices/authSlice';
 import { totalsCounterApi } from "./api/totalCounterApi";
 import totalCounterSlice from './slices/totalCounterSlice';
 import { setupListeners } from "@reduxjs/toolkit/dist/query/react";
+import totalResumeSlice from './slices/totalResumeSlice';
 
 const store = configureStore({
     reducer: {
         auth: authSlice,
         totalCounter: totalCounterSlice,
+        totalResume: totalResumeSlice,
         [authApi.reducerPath] : authApi.reducer,
         [totalsCounterApi.reducerPath]: totalsCounterApi.reducer,
     },

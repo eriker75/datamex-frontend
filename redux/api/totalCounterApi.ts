@@ -10,8 +10,8 @@ export interface Totals {
 }
 
 export interface Filters{
-  cities: string[];
-  wbtypes: string[];
+  cities: string[] | null;
+  wbtypes: string[] | null;
 }
 
 export const totalsCounterApi = createApi({

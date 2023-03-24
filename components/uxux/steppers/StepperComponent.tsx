@@ -10,7 +10,7 @@ import { RegisterFormNatural } from "@/components/partials/auth/RegisterFormNatu
 import { RegisterFormCompany } from "@/components/partials/auth/RegisterFormCompany";
 
 const StepperComponent = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [userType, setUserType] = useState<UserTypes>(UserTypes.NATURAL);
 
   let cx = classNames.bind(styles);
@@ -36,6 +36,7 @@ const StepperComponent = () => {
               </ul>
             </Col>
           </Row>
+          <button className="btn btn-primary float-end mr-3" onClick={()=>setStep(2)}>Siguiente Paso</button>
         </Container>
       </div>
       <div className={cx({ "d-none": step !== 2 })}>

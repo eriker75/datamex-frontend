@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap'
 import { useSpring, animated } from '@react-spring/web';
 
 export interface Props{
-    n: number
+    n: number;
 }
 
 const TotalCard: FC<Props> = ({ n }) => {

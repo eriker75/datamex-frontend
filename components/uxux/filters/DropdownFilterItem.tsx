@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from 'react';
 import styles from "./DropdownFilterItem.module.scss";
 import classNames from "classnames/bind";
-import { useAppDispatch } from '@/hooks/redux';
-import { toggleCity, toggleType } from "@/redux/slices/totalCounterSlice";
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { selectTotalCities, selectTotalWbTypes, toggleCity, toggleType } from "@/redux/slices/totalCounterSlice";
 
 interface Props {
   value: string;
@@ -11,6 +11,16 @@ interface Props {
 
 const DropdownFilterItem: FC<Props> = ({ value, entity }) => {
   const dispatch = useAppDispatch();
+  const cities = useAppSelector(selectTotalCities);
+  const types = useAppSelector(selectTotalWbTypes);
+  const [filters, setFilters] = useState<string[]>([]);
+  
+  useEffect(()=>{
+    if(entity==='cities')
+      setFilters(cities);
+    if(entity==='types')
+      setFilters(types);
+  }, [cities, entity, types]);
 
   const handleFilter = () => {
     if(entity==='cities')
@@ -32,7 +42,8 @@ const DropdownFilterItem: FC<Props> = ({ value, entity }) => {
           id={value}
           name={value}
           value={value}
-          onClick={handleFilter}
+          checked={Boolean(filters.includes(value))}
+          onChange={handleFilter}
         />
         <label
           className="form-check-label cursor w-100"

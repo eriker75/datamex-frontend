@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from '@/redux/store';
+import Cookies from 'js-cookie'
 
 export interface totalCounterState {
   wbtypes: string[];
@@ -14,9 +15,16 @@ export interface cityPayload {
   city: string;
 }
 
+
 const initialState: totalCounterState = {
-  wbtypes: [],
-  cities: [],
+  wbtypes: 
+    (Cookies.get("wbf_totals_types") 
+      && JSON.parse(Cookies.get("wbf_totals_types") as string)) 
+      || [],
+  cities: 
+    (Cookies.get("wbf_totals_types") 
+      && JSON.parse(Cookies.get("wbf_totals_cities") as string)) 
+      || [],
 };
 
 const totalCounterSlice = createSlice({
@@ -28,6 +36,9 @@ const totalCounterSlice = createSlice({
         state.wbtypes.push(action.payload.wbtype);
       } else {
         state.wbtypes.splice(state.wbtypes.indexOf(action.payload.wbtype), 1);
+      }
+      if (typeof window !== "undefined") {
+        Cookies.set('wbf_totals_types',JSON.stringify(state.wbtypes))
       } 
     },
     toggleCity: (state, action: PayloadAction<cityPayload>) => {
@@ -35,6 +46,9 @@ const totalCounterSlice = createSlice({
         state.cities.push(action.payload.city);
       } else {
         state.cities.splice(state.cities.indexOf(action.payload.city), 1);
+      } 
+      if (typeof window !== "undefined") {
+        Cookies.set('wbf_totals_cities',JSON.stringify(state.cities))
       } 
     },
   },
