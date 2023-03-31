@@ -5,20 +5,23 @@ import { totalsCounterApi } from "./api/totalCounterApi";
 import totalCounterSlice from './slices/totalCounterSlice';
 import { setupListeners } from "@reduxjs/toolkit/dist/query/react";
 import totalResumeSlice from './slices/totalResumeSlice';
+import { orderApi } from './api/orderApi';
 
 const store = configureStore({
     reducer: {
         auth: authSlice,
         totalCounter: totalCounterSlice,
         totalResume: totalResumeSlice,
+        [orderApi.reducerPath]: orderApi.reducer,
         [authApi.reducerPath] : authApi.reducer,
-        [totalsCounterApi.reducerPath]: totalsCounterApi.reducer,
+        [totalsCounterApi.reducerPath]: totalsCounterApi.reducer
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware()
         .concat(authApi.middleware)
-        .concat(totalsCounterApi.middleware),
-    devTools: Boolean(process.env.NEXT_REDUX_DEVTOOLS_ACTIVATED) || true,
+        .concat(totalsCounterApi.middleware)
+        .concat(orderApi.middleware),
+    devTools:true,
 });
 
 

@@ -1,5 +1,5 @@
-import { createApi } from '@reduxjs/toolkit/query/react';
-import { baseQuery } from '@/redux/baseQuery';
+import { BaseQueryFn, FetchArgs, createApi } from '@reduxjs/toolkit/query/react';
+import { baseQueryWithReauth } from '@/redux/baseQuery';
 
 export interface LoginBodyInterface{
     email: string;
@@ -9,17 +9,17 @@ export interface LoginBodyInterface{
 export interface SignInBodyInterface{
     email: string;
     password: string;
-    password_confirm: string;
+    password_confirmation: string;
 }
 
 export const authApi = createApi({
     reducerPath: "authApi",
-    baseQuery,
+    baseQuery: baseQueryWithReauth,
     endpoints: (builder) => ({
         singIn: builder.mutation({
             query: (body: SignInBodyInterface) => {
                 return {
-                    url: "/auth/signin",
+                    url: "/auth/register",
                     method: "POST",
                     body,
                 };
@@ -28,7 +28,7 @@ export const authApi = createApi({
         logIn: builder.mutation({
             query: (body: LoginBodyInterface) => {
                 return {
-                    url: "/user/login",
+                    url: "/auth/login",
                     method: "POST",
                     body,
                 };
@@ -37,13 +37,13 @@ export const authApi = createApi({
         logOut: builder.mutation({
             query: (body : void) => {
                 return {
-                    url: "/user/login",
+                    url: "/auth/logout",
                     method: "POST",
                     body,
                 };
             },
         }),
-    })
+    }),
 })
 
 export const { 

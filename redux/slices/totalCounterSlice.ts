@@ -22,7 +22,7 @@ const initialState: totalCounterState = {
       && JSON.parse(Cookies.get("wbf_totals_types") as string)) 
       || [],
   cities: 
-    (Cookies.get("wbf_totals_types") 
+    (Cookies.get("wbf_totals_cities") 
       && JSON.parse(Cookies.get("wbf_totals_cities") as string)) 
       || [],
 };

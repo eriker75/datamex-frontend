@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from '@/redux/store';
 import { WithNull } from '@/types/WithNull';
+import Cookies from "js-cookie";
 
 export interface AuthState {
     user: string;
@@ -9,7 +10,7 @@ export interface AuthState {
   
 const initialState: WithNull<AuthState> = {
     user: null,
-    token: null,
+    token: Cookies.get("jwt") || null,
 };
 
 const authSlice = createSlice({
@@ -18,10 +19,11 @@ const authSlice = createSlice({
     reducers: {
         logIn: (state, action : PayloadAction<AuthState>) => {
             const { user, token } = action.payload
+            Cookies.set("jwt",token);
             state.user = user;
             state.token = token;
         },
-        logOut: (state, action) => {
+        logOut: (state, action: PayloadAction<void>) => {
             state.user = null
             state.token = null
         }
