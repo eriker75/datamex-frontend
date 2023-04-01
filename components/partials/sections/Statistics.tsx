@@ -1,11 +1,11 @@
 import { Container, Row } from "react-bootstrap";
-import { TotalCard } from "../uxux/counters/TotalCard";
+import { TotalCard } from "../../uxux/counters/TotalCard";
 import { WhyDatamex } from "./WhyDatamex";
 import { Filters, useGlobalTotalsQuery } from "@/redux/api/totalCounterApi";
 import { useState, useEffect } from "react";
-import { RootState } from "../../redux/store";
+import { RootState } from "../../../redux/store";
 import { useAppSelector, useAppDispatch } from "@/hooks/redux";
-import { setTotalResume } from "../../redux/slices/totalResumeSlice";
+import { setTotalResume } from "../../../redux/slices/totalResumeSlice";
 
 const Statistics = () => {
   const dispatch = useAppDispatch();

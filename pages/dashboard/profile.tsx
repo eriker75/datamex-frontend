@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/layouts/DashboardLayout";
+import { DashboardLayout } from "@/components";
 import Image from "next/image";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { SyntheticEvent } from "react";

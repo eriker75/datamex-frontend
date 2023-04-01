@@ -12,6 +12,10 @@ export interface SignInBodyInterface{
     password_confirmation: string;
 }
 
+export interface LoginResponse{
+    token: string;
+}
+
 export const authApi = createApi({
     reducerPath: "authApi",
     baseQuery: baseQueryWithReauth,
@@ -25,7 +29,7 @@ export const authApi = createApi({
                 };
             },
         }),
-        logIn: builder.mutation({
+        logIn: builder.mutation<LoginResponse , LoginBodyInterface>({
             query: (body: LoginBodyInterface) => {
                 return {
                     url: "/auth/login",

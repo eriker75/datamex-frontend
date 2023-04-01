@@ -1,5 +1,8 @@
 import { useSingInMutation } from "@/redux/api/authApi";
+import { authorize } from '@/redux/slices/authSlice';
 import { useForm, SubmitHandler } from "react-hook-form";
+import jwt_decode from "jwt-decode";
+import { useAppDispatch } from '../../../hooks/redux';
 
 interface Inputs {
   name: string;
@@ -9,6 +12,7 @@ interface Inputs {
 }
 
 const SignUpForm = () => {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -28,7 +32,8 @@ const SignUpForm = () => {
         password,
         password_confirmation,
       }).unwrap();
-      console.log("fulfilled", payload);
+      const user = jwt_decode(payload.token);
+      dispatch(authorize({user: '', token: 'asda'}));
     } catch (error) {
       console.error("rejected", error);
     }

@@ -1,6 +1,6 @@
 import { Navigation } from '@/components/partials';
-import SignInForm from '@/components/partials/SignInForm';
-import SignUpForm from '@/components/partials/SignUp';
+import SignInForm from '@/components/partials/auth/SignInForm';
+import SignUpForm from '@/components/partials/auth/SignUp';
 import BackgroundLogin from '@/components/uxux/backgrounds/BackgroundLogin';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 

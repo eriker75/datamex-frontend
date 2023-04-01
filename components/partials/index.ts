@@ -1,6 +1,6 @@
-export { Footer } from './Footer';
-export { Navigation } from './Navigation';
-export { FrequentQuestions } from './FrequentQuestions';
-export { Statistics } from './Statistics';
-export { Reviews } from './Reviews';
-export { SignInModal } from './SignInModal';
+export { Footer } from './footer/Footer';
+export { Navigation } from './navbar/Navigation';
+export { FrequentQuestions } from './sections/FrequentQuestions';
+export { Statistics } from './sections/Statistics';
+export { Reviews } from './sections/Reviews';
+export { SignInModal } from './auth/SignInModal';

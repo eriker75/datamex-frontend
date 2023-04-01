@@ -1,4 +1,4 @@
-import AccordionItem from "../uxux/accordions/AccordionItem"
+import AccordionItem from "../../uxux/accordions/AccordionItem"
 
 const FrequentQuestions = () => {
   return (

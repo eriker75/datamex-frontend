@@ -1,5 +1,5 @@
 import { BaseQueryApi, FetchArgs, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { logIn, logOut } from './slices/authSlice'
+import { authorize, logout } from './slices/authSlice'
 import { RootState } from './store';
 
 const baseQuery = fetchBaseQuery({
@@ -23,14 +23,14 @@ const baseQueryWithReauth = async (args: string | FetchArgs, api: BaseQueryApi, 
       const state = api.getState() as RootState;
       const user = state.auth.user as NonNullable<typeof state.auth.user>;
       const token = state.auth.user as NonNullable<typeof state.auth.token>;
-      api.dispatch(logIn({
+      api.dispatch(authorize({
         token,
         ...refreshResult.data,
         user
       }))
       result = await baseQuery(args, api, extraOptions)
     } else {
-      api.dispatch(logOut())
+      api.dispatch(logout())
     }
   }
   return result

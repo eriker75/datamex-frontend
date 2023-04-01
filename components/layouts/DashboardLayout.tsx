@@ -42,4 +42,4 @@ const DashboardLayout: FC<Children> = ({children}) => {
   </>);
 };
 
-export default DashboardLayout;
+export { DashboardLayout };

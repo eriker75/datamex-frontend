@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import DashboardLayout from "@/components/layouts/DashboardLayout";
+import { DashboardLayout } from "@/components";
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import Image from "next/image";
 

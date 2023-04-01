@@ -1,5 +1,6 @@
 import { useLogInMutation } from "@/redux/api/authApi";
 import { useForm, SubmitHandler } from "react-hook-form";
+import jwt_decode from "jwt-decode";
 import { useState } from 'react';
 
 interface Inputs {
