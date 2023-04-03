@@ -7,12 +7,13 @@ export { DashboardLayout } from './layouts';
 /**
  *  Partial components 
  */
-export { Footer } from './partials';
+/* export { Footer } from './partials';
 export { Navigation } from './partials';
 export { FrequentQuestions } from './partials';
 export { Statistics } from './partials';
 export { Reviews } from './partials';
-export { SignInModal } from './partials';
+export { SignInModal } from './partials'; */
+export * from './partials';
 
 /**
  *  UX/UI components 

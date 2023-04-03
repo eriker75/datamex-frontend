@@ -8,7 +8,7 @@ interface Inputs {
   password: string;
 }
 
-const SignIn = () => {
+const SignInForm = () => {
   const {
     register,
     handleSubmit,
@@ -111,4 +111,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export { SignInForm };

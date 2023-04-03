@@ -85,3 +85,19 @@ body {
 a:hover {
   text-decoration: none;
 }
+
+#pay-card-element{
+  border-radius: 0.5rem;
+  padding: 12px;
+  max-height: 44px;
+  width: 100%;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(64, 64, 64, 0.78);
+}

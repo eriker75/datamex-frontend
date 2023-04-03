@@ -16,7 +16,13 @@ import 'simplebar/dist/simplebar.css';
  * Redux imports
  */
 import { ReduxProvider } from '@/redux/provider';
+/**
+ * Stripe setup
+ */
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
+const stripe = loadStripe(`${process.env.NEXT_PUBLIC_STRIPE_PK}`)
 
 export default function App({ Component, pageProps }: AppProps) {
   
@@ -29,7 +35,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ReduxProvider>
-      <Component {...pageProps} />
+      <Elements stripe={stripe}>
+        <Component {...pageProps} />
+      </Elements>
     </ReduxProvider>
   )
 }
