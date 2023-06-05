@@ -1,16 +1,13 @@
-import React, { FC, useState } from "react";
-import { Col } from "react-bootstrap";
-
 interface Props{
   status: boolean;
   text: string;
   value: 'oxxo' | 'card';
 }
 
-const PaymentMethodCheckbox: FC<Props> = ({value, text, status}) => {
+const PaymentMethodCheckbox = ({value, text, status} : Props) => {
   const borderColor = status ? '#47D985' : '#DFDFEB'; 
   return (
-    <Col>
+    <div>
       <label
         htmlFor={value}
         className="p-3 my-3 text-center d-flex align-items-center justify-content-center cursor"
@@ -22,9 +19,9 @@ const PaymentMethodCheckbox: FC<Props> = ({value, text, status}) => {
       >
         {text}
       </label>
-      <input type="radio" name="rGroup" value={value} id={value} />
-    </Col>
+      <input type="radio" name="rGroup" value={value} id={value} style={{display: 'none'}}/>
+    </div>
   );
 };
 
-export default PaymentMethodCheckbox;
+export { PaymentMethodCheckbox };

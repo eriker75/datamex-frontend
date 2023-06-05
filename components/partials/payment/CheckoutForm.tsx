@@ -6,9 +6,9 @@ import {
   CardCvcElement,
 } from "@stripe/react-stripe-js";
 import { Container, Row, Col } from "react-bootstrap";
-import PaymentMethodCheckbox from "./PaymentMethodCheckbox";
+import { PaymentMethodSelector } from "./PaymentMethodSelector";
 
-export interface Props{
+interface Props{
   setStep: (state: number)=>void;
 }
 
@@ -21,10 +21,7 @@ const CheckoutForm: FC<Props> = () => {
           <Row>
             <h3 className="text-center">Seleccione un método de pago</h3>
           </Row>
-          <Row className="payment-method-checkboxes">
-            <PaymentMethodCheckbox status={true} text={'card pay'} value={'card'} />
-            <PaymentMethodCheckbox status={false} text={'oxxo pay'} value={'oxxo'} />
-          </Row>
+          <PaymentMethodSelector/>
           <div className="input-group mb-3">
             <label htmlFor="text-input" className="form-label">
               Numero de Tarjeta
