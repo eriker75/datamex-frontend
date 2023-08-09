@@ -2,11 +2,12 @@ import { FC } from "react";
 import { useState } from "react";
 import DropdownFilterItem from "./DropdownFilterItem";
 import { searchHelper } from "@/helpers";
+import { TOTAL_FILTERS } from "@/types";
 
 
 interface Props {
   options: string[];
-  entity: string;
+  entity: TOTAL_FILTERS;
 }
 
 const DropdownFilter: FC<Props> = ({ options, entity }) => {

@@ -2,31 +2,44 @@ import { FC, useEffect, useState } from 'react';
 import styles from "./DropdownFilterItem.module.scss";
 import classNames from "classnames/bind";
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectTotalCities, selectTotalWbTypes, toggleCity, toggleType } from "@/redux/slices/totalCounterSlice";
-
+import { TOTAL_FILTERS } from "@/types";
+import { 
+  selectTotalCities,
+  selectTotalTrades,
+  selectTotalSizes,
+  selectTotalStates,
+  toggleTotal 
+} from "@/redux/slices/totalCounterSlice";
 interface Props {
   value: string;
-  entity: string;
+  entity: TOTAL_FILTERS;
 }
 
 const DropdownFilterItem: FC<Props> = ({ value, entity }) => {
   const dispatch = useAppDispatch();
   const cities = useAppSelector(selectTotalCities);
-  const types = useAppSelector(selectTotalWbTypes);
+  const trades = useAppSelector(selectTotalTrades);
+  const sizes = useAppSelector(selectTotalSizes);
+  const states = useAppSelector(selectTotalStates);
   const [filters, setFilters] = useState<string[]>([]);
   
   useEffect(()=>{
-    if(entity==='cities')
+    if(entity===TOTAL_FILTERS.CITIES)
       setFilters(cities);
-    if(entity==='types')
-      setFilters(types);
-  }, [cities, entity, types]);
+    if(entity===TOTAL_FILTERS.TRADES)
+      setFilters(trades);
+    if(entity===TOTAL_FILTERS.STATES)
+      setFilters(states);
+    if(entity===TOTAL_FILTERS.SIZES)
+      setFilters(sizes);
+  }, [entity, cities, trades, states, sizes]);
 
   const handleFilter = () => {
-    if(entity==='cities')
-      dispatch(toggleCity({city: value}))
-    if(entity==='types')
-      dispatch(toggleType({wbtype: value}))
+    dispatch(toggleTotal({filter: entity, toggle: [value]}));
+    if( entity === TOTAL_FILTERS.STATES) {
+      //Ad logic here!
+      //dispatch(toggleTotal({filter: entity, toggle: [value]}));
+    }
   }
   
   let cx = classNames.bind(styles);

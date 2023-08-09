@@ -1,17 +1,22 @@
-export interface WbTypesInterface extends Readonly<Record<string, any>> {
-    ENERGY_WATER_GAS: 'Energía, Agua y Gas',
-    BUILDING_CONSTRUCTION: 'Edificación y Construcción',
-    RETAILS_COMMERCE: 'Comercio Minorista',
-    WHOLESALE_TRADE: 'Comercio Mayorista',
-    AGRICULTURE_LIVESTOCK_FISHING: 'Agricultura, Ganadería y Pesca',
-    LEGISLATIVE_GOVERNMENT_INTERNATIONAL: 'Entidades Legislativas, Gubernamentales e Internacionales'
-}
-
-export const WB_TYPES = {
-    ENERGY_WATER_GAS: 'Energía, Agua y Gas',
-    BUILDING_CONSTRUCTION: 'Edificación y Construcción',
-    RETAILS_COMMERCE: 'Comercio Minorista',
-    WHOLESALE_TRADE: 'Comercio Mayorista',
-    AGRICULTURE_LIVESTOCK_FISHING: 'Agricultura, Ganadería y Pesca',
-    LEGISLATIVE_GOVERNMENT_INTERNATIONAL: 'Entidades Legislativas, Gubernamentales e Internacionales'
-}
+export const WB_TYPES = [
+    "Agricultura, Ganadería y Pesca",
+    "Banca, Financieras y Seguros",
+    "Comercio Mayorista",
+    "Comercio Minorista",
+    "Corporativos",
+    "Deporte, Cultura y Recreación",
+    "Edificación y Construcción",
+    "Educación",
+    "Energía, Agua y Gas",
+    "Entidades Legislativas, Gubernamentales e Internacionales",
+    "Hotelería, Restaurantes y Bares",
+    "Industria y Manufactura",
+    "Inmobiliarias, Bienes Muebles e Inmuebles",
+    "Medios de Comunicación",
+    "Minería",
+    "Profesionistas, Técnicos y Científicos",
+    "Salud y Asistencia",
+    "Servicios",
+    "Servicios de Apoyo a los Negocios y de Remediación",
+    "Transportes y Logística"
+]

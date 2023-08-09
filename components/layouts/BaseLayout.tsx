@@ -8,6 +8,7 @@ import {
   SignInModal,
   BackgroundImage
 } from '@/components';
+import { TOTAL_FILTERS } from '@/types';
 
 interface Children{
   children: any;
@@ -29,8 +30,9 @@ const BaseLayout : FC<Children> = ({children}) => {
           className='position-absolute top-100 start-50 translate-middle w-50 rounded rounded-5 d-flex align-items-center justify-content-center gap-3'
           style={{"minHeight": "100px","backgroundColor": "#F7F7FC", "zIndex": "9", "minWidth" : "800px"}}
         >
-          <DropdownFilter options={Object.values(WB_TYPES)} entity='types'/>
-          <DropdownFilter options={MEXICO_CITIES} entity='cities'/>
+          <DropdownFilter options={Object.values(WB_TYPES)} entity={TOTAL_FILTERS.TRADES}/>
+          <DropdownFilter options={MEXICO_CITIES} entity={TOTAL_FILTERS.CITIES}/>
+          <DropdownFilter options={["0 a 5 empleados","6 a 10 empleados"]} entity={TOTAL_FILTERS.SIZES}/>
           <FilterButton/>
         </div>
       </div>

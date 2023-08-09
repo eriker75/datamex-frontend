@@ -1,7 +1,7 @@
 import { Container, Row } from "react-bootstrap";
 import { TotalCard } from "../../uxux/counters/TotalCard";
 import { WhyDatamex } from "./WhyDatamex";
-import { Filters, useGlobalTotalsQuery } from "@/redux/api/totalCounterApi";
+import { Filters, useGlobalTotalsMutation } from "@/redux/api/totalCounterApi";
 import { useState, useEffect } from "react";
 import { RootState } from "../../../redux/store";
 import { useAppSelector, useAppDispatch } from "@/hooks/redux";
@@ -10,8 +10,26 @@ import { setTotalResume } from "../../../redux/slices/totalResumeSlice";
 const Statistics = () => {
   const dispatch = useAppDispatch();
   const filters = useAppSelector((state: RootState) => state.totalCounter);
-  const { data, isLoading, isError, error, isSuccess, refetch } =
-    useGlobalTotalsQuery(filters);
+
+  const [postGlobalTotals, { isError, isLoading, isSuccess, error }] = useGlobalTotalsMutation();
+
+  const data = {webs: 0, emails: 0, phones: 0, companies: 0};
+
+  const getTotals = async () => {
+    try {
+      const totals = await postGlobalTotals(filters);
+      console.log(totals);
+    } catch(fail) {
+      console.log(fail);
+    }
+  }
+
+  useEffect(()=> {
+    postGlobalTotals(filters)
+      .then((res)=> console.log(res))
+      .catch((error) => console.log(error))
+  },[filters, postGlobalTotals])
+
 
   useEffect(() => {
     if (isSuccess) {
@@ -62,6 +80,7 @@ const Statistics = () => {
           )}
         </Row>
       </Container>
+      <button onClick={() => getTotals()}>REFRESH</button>
       <WhyDatamex />
       <h1 className="text-center"> Preguntas Frecuentes</h1>
     </>
