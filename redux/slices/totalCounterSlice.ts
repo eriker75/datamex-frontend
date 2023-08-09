@@ -77,4 +77,4 @@ export const selectTotalCities = (state: RootState) => state.totalCounter.cities
 export const selectTotalStates = (state: RootState) => state.totalCounter.states;
 export const selectTotalSizes = (state: RootState) => state.totalCounter.sizes;
 
-export default totalCounterSlice.reducer;
+export const totalCounterSliceReducer = totalCounterSlice.reducer;

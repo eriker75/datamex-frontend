@@ -45,7 +45,7 @@ export const totalResumeSlice = createSlice({
 })
 
 export const { setTotalResume } = totalResumeSlice.actions;
-export default totalResumeSlice.reducer;
+export const totalResumeSliceReducer = totalResumeSlice.reducer;
 export const selectTotalResume = (state: RootState) => state.totalResume;
 
 export const selectCompanies = createSelector(
